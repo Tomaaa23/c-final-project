@@ -1,0 +1,46 @@
+# Project: finalproject
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o menu.o toolfun.o librarian.o member.o myword.o filefun.o
+LINKOBJ  = main.o menu.o toolfun.o librarian.o member.o myword.o filefun.o
+LIBS     = -L"D:/software/Dev-Cpp/MinGW64/lib" -L"D:/software/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"D:/software/Dev-Cpp/MinGW64/include" -I"D:/software/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/software/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/software/Dev-Cpp/MinGW64/include" -I"D:/software/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/software/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/software/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = finalproject.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+menu.o: menu.c
+	$(CC) -c menu.c -o menu.o $(CFLAGS)
+
+toolfun.o: toolfun.c
+	$(CC) -c toolfun.c -o toolfun.o $(CFLAGS)
+
+librarian.o: librarian.c
+	$(CC) -c librarian.c -o librarian.o $(CFLAGS)
+
+member.o: member.c
+	$(CC) -c member.c -o member.o $(CFLAGS)
+
+myword.o: myword.c
+	$(CC) -c myword.c -o myword.o $(CFLAGS)
+
+filefun.o: filefun.c
+	$(CC) -c filefun.c -o filefun.o $(CFLAGS)
